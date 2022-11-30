@@ -1,0 +1,15 @@
+{% set show_blog = {{ path('blog_article_show', {'slug': blog.slug }) }} %}
+<article>
+<div>
+{% if blog.image %}
+<a href="show_blog">
+
+{% endif %}
+<div>
+<h2>
+<a href="{{show_blog}}">{{blog.title}}</a>
+</h2>
+<p></p>
+</div>
+</div>
+</article>
