@@ -5,9 +5,14 @@
 <h1>{{blog.title}}</h1>
 
 <p>{{blog.content|raw}}</p>
-<h2>{{blog.comments|length}} comment(s)</h2>
+<h2 class="comment-count">{{blog.comments|length}} comment(s)</h2>
 </div>
 <div>
-{{form(form)}} 
+{{form(form, {'attr':{'class': 'form-comment'}})}} 
+</div>
+<div class ="comment-list">
+    {% for comment in blog.comments %}
+        {% include 'comment/index.html.twig' with [comment] %}
+    {% endfor %}
 </div>
 {% endblock %}

@@ -21,18 +21,22 @@ class Comment
     private ?\DateTimeInterface $createdAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'comments')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?Blog $blog = null;
 
     #[ORM\ManyToOne(inversedBy: 'comments')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
+    public function __construct(Blog $blog) 
+    {
+        $this->blog = $blog;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
     }
-
-   
 
     public function getContent(): ?string
     {

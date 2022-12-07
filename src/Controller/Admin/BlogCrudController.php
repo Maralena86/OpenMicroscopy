@@ -33,6 +33,7 @@ class BlogCrudController extends AbstractCrudController
                 ->hideOnForm();
 
             yield AssociationField::new('categories');
+            yield AssociationField::new('image');
             yield DateTimeField::new('updatedAt')
                 ->hideOnForm();
 

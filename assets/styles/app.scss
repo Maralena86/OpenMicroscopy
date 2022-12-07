@@ -23,6 +23,7 @@ nav {
     align-items: center;
     justify-content: space-between;
 }
+
 ul{
     list-style-type: none;
 }
@@ -56,10 +57,7 @@ ul{
     display: none;
     cursor: pointer;
 }
-.grid-container{
-    display: grid;
-    grid-template-columns: auto auto auto;
-}
+
 
 /*--------corps------------*/
 .hero-container{
@@ -223,8 +221,82 @@ h3{
 
 /*----------blogcontainer--------*/
 .blog-container{
-    padding-top: 100px;
+    position: relative;
+    display: flex;
+    justify-content: center;
 }
+#blog-title-container{
+    background-color: black;
+    color: white;
+    width: 100%;
+    padding: 100px 0px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    
+
+}
+#blog-title{
+    font-size: 5rem;
+    border-bottom:0.6px solid white;
+    padding-bottom: 3rem;
+    width: 30%;
+
+}
+.categories-list a{
+    text-decoration: none;
+    color: white;
+}
+.categories-list li{
+    list-style-type: none;
+}
+.categories-list{
+    display: flex;
+    justify-content: center;
+    padding: 4rem 0;
+    gap: 4rem;
+}
+#box-articles{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.article-list-container{
+    width: 70%;
+    margin: 0px auto;
+    padding: 3rem 0;
+    background-color: whitesmoke; 
+    position: absolute; 
+    top: 400px;
+  
+}
+.grid-container{
+    display: flex; 
+    gap: 1rem; 
+    
+}
+#first-article{
+    width: 100%;
+   display: flex;
+   gap: 3rem;
+}
+#first-article img{
+    width: 50%;
+}
+.article-container{
+    width: 30%;
+}
+.article-container a{
+    text-decoration: none;
+    color: black;
+}
+.article-container img{
+    width: 100%;
+}
+
+
 @media screen and (max-width:  1400px)
 {	
     .hamburguer{

@@ -185,4 +185,8 @@ class Blog implements TimestampableInterface
 
         return $this;
     }
+    public function __toString(): string
+    {
+        return $this->title;
+    }
 }

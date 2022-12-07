@@ -3,30 +3,60 @@
 {% block title %}R Laboratory: Blog{% endblock %}
 
 {% block body %}
-<div class="blog-container d-flex-center">
-    <div class="container-section ">
-        <h1>Blog</h1>
-        <h2>Articles</h2>
-        <div class="grid-container">
-        {% for blog in blogs %}
-        <div>
-            <a href="{{ path('blog_article_show', {'slug': blog.slug }) }}">
-            <h3>{{blog.title}}</h3>
-            <img src="https://www.fancypapers.com/wp-content/uploads/2020/03/K-COLOUR_DARK_RED_140-250gsm-320x320-1.jpg">
+<div class="blog-container 
+">
+    
+    <div id="blog-title-container">
+        <h1 id="blog-title">Blog</h1>
+      
+        <div class="categories-list">
+        {% for category in categories %}
+            <a href="{{ path('blog_category_show', {'slug': category.slug }) }}">
+                <li>{{category.name}}</li>
             </a>
-            <p>{{blog.content|striptags}}</p>
-        </div>
-        {% endfor %}
-        </div>
-    <div>
-    <h2>Categories</h2>
-       {% for category in categories %}
-       <a href="{{ path('blog_category_show', {'slug': category.slug }) }}">
-       <li>{{category.name}}</li>
-       </a>
        {% endfor %}
+        </div>
     </div>
-    </div>   
+    <div class="article-list-container">  
+        <div id="box-articles">
+        {% for blog in blogs %}
+        {% if blog == blogs|first %}
+        <h2>Last Article</h2>
+        <div id="first-article">
+            <img src='uploads/{{blog.image.filename}}'>
+            <div>
+            <h3>{{blog.title}}</h3>
+            {% for category in blog.categories %}
+            <span style="color:{{category.color}}">{{category.name}} </span>
+            {% endfor %}
+            <p>{{blog.content|striptags}}</p>
+            <p>{{blog.createdAt|date()}}</p>
+            </div>
+        </div>
+        <div class="grid-container">
+        {% else %}
+        
+     
+            <div class='article-container'>
+                <a href="{{ path('blog_article_show', {'slug': blog.slug }) }}">
+                <img src='uploads/{{blog.image.filename}}'>
+                <h3>{{blog.title}}</h3>
+                {% for category in blog.categories %}
+                <span style="color:{{category.color}}">{{category.name}} </span>
+            {% endfor %}
+                <p>{{blog.content|striptags}}</p>
+                <p>{{blog.createdAt|date()}}</p>
+                </a>
+            </div>
+       {% endif %}
+        {% endfor %}
+  
+        </div>
+    </div>
+    <div>
+    
+       
+     
     
 </div>
 {% endblock %}
