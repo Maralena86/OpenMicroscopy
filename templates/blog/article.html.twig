@@ -1,18 +1,46 @@
 {% extends 'base.html.twig'%}
 {% block title %}{{blog.title}}{% endblock %}
 {% block body %}
-<div class="blog-container">
-<h1>{{blog.title}}</h1>
-
-<p>{{blog.content|raw}}</p>
-<h2 class="comment-count">{{blog.comments|length}} comment(s)</h2>
-</div>
-<div>
-{{form(form, {'attr':{'class': 'form-comment'}})}} 
-</div>
-<div class ="comment-list">
-    {% for comment in blog.comments %}
-        {% include 'comment/index.html.twig' with [comment] %}
-    {% endfor %}
+<div class="article-detail-container">
+    <div class="img-detail-container" style= "background-image: url('/uploads/{{blog.image.filename}}')">
+        <div class="card-overlay title-article-container">
+            <h1>{{blog.title}}</h1>
+            <p>by</p>
+            
+        </div>
+    </div>
+    <article class="content-article">
+        <div class="article-detail">
+            
+            <p> Published the {{blog.createdAt|date('d F Y')}}</p>
+            {% include "components/_share.html.twig"%}
+            <p >{{blog.content|raw}}</p>
+            <div class="comments-container">
+            <p class="comment-count">{{blog.comments|length}} comment(s)</p>
+                {{form(form, {'attr':{'class': 'form-comment'}})}} 
+                <div class ="comment-list">
+                    {% for comment in blog.comments %}
+                        {% include 'comment/index.html.twig' with [comment] %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <aside class="d-flex-col article-category-container">
+            <h3>Other articles</h3>
+            {% for post in posts %}      
+            <div class="article-container article-container-aside">
+            <a href="{{ path('blog_article_show', {'slug': post.slug }) }}">
+            <h4>{{post.title}}</h2>
+            <div class="img-container">
+            <img src='/uploads/{{post.image.filename}}'>
+            </div>
+            <p>{{post.content|striptags|slice(0, 50, '...')}}</p>
+            </a>
+            
+            </div>
+            {% endfor %}
+            
+        </div>
+    </div>
 </div>
 {% endblock %}

@@ -9,8 +9,13 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation\Timestampable;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: BlogRepository::class)]
+#[UniqueEntity(
+    'slug',
+    message:'This title alredy exists'
+)]
 class Blog implements TimestampableInterface
 {
     #[ORM\Id]
@@ -44,6 +49,9 @@ class Blog implements TimestampableInterface
     #[Timestampable(on:'update')]
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updatedAt = null;
+
+    #[ORM\Column(length: 50, nullable: true)]
+    private ?string $textInfo = null;
 
     public function __construct()
     {
@@ -188,5 +196,17 @@ class Blog implements TimestampableInterface
     public function __toString(): string
     {
         return $this->title;
+    }
+
+    public function getTextInfo(): ?string
+    {
+        return $this->textInfo;
+    }
+
+    public function setTextInfo(?string $textInfo): self
+    {
+        $this->textInfo = $textInfo;
+
+        return $this;
     }
 }

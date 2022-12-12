@@ -1,12 +1,14 @@
-body{
-    
+body{   
     font-family: 'Montserrat', sans-serif;
 }
 *{
     margin: 0;
     padding: 0;
-
 }
+:root{
+    --primary-light-color:rgb(245, 246, 248);
+}
+
 /*-------------Navigation top-------------*/
 header{
     width: 100%;
@@ -15,6 +17,8 @@ header{
     background-color: rgb(0, 0, 0);
     z-index: 1;
     box-shadow: 3px 3px 3px black;
+    display: flex;
+    justify-content: flex-end;
   
 }
 nav {
@@ -22,11 +26,13 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-right: 3rem;
 }
 
 ul{
     list-style-type: none;
 }
+
 .nav-menu{
     display: flex;
 	margin-left: 30px;
@@ -36,14 +42,19 @@ ul{
 
 .nav-link{
     text-decoration: none;
-    color: rgb(188, 221, 223);
-    font-size: 17px;
-    letter-spacing: 3px;
+    color: rgb(226, 237, 238);
+    font-size: 1.1rem;
+    padding-bottom: 10px;
 }
+
 .nav-link:hover{
-    color: rgb(53, 187, 176);
+    border-bottom: 1px solid yellowgreen;
 
 }
+.nav-link.active{
+    border-bottom: 1px solid yellowgreen;   
+}
+
 .bar{
     display: block;
     width: 36px;
@@ -62,24 +73,55 @@ ul{
 /*--------corps------------*/
 .hero-container{
     background-color: black;
-    display: flex;
-    justify-content:center;
+ 
     box-shadow: 4px 4px 15px black;
+    position: relative;
+   
 }
-.hero-container-2{
-    background-color: black;
-}
-.hero-container-2>img{
-    width: 100%;
-    margin-top: 80px;
-
+#color-green{
+    color: rgb(98, 195, 139);
+    margin: 0 1rem;
 }
 .hero-container>img{
     width: 100%;
     margin-top: 90px;   
 }
+.hero-container-2 img{
+    margin-top: 70px;
+    width: 100%;
+}
+.hero-container-2 {
+    background-color: black;
+}
+#hero-title{
+    color: white;
+    padding: 100px 20px;
+    position: absolute;
+    font-size: 2.5rem;
+    z-index: 500;  
+    display: flex;
+    align-items: center;
+}
+#hero-title p{
+    font-size: 2.5rem;
+}
+#hero-title span{
+    position: relative;
+    
+    display: inline-block;
+    animation: flip 5s infinite;
+    transition-duration: 0.5s;
+    animation-delay: calc(.1s *var(--i))
+}
+@keyframes flip{
+    0%, 50%{
+        transform: rotateY(360deg);
+        scale: 1.14;
+    }
+   
+}
 p{
-    font-size: 18px;
+    font-size: 1.4rem;
     font-weight: 200;
     text-align: justify;
     line-height: 1.7;
@@ -98,18 +140,23 @@ h2{
 }
 h3{
     font-size: 30px;
-    font-weight: 300;
-
-   
+    font-weight: 300; 
 }
-
+img{
+    object-fit: cover;
+}
 /*--------framework--------*/
-
+.fa-brands{
+    color: rgb(12, 12, 117);
+}
 .d-flex-col{
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+}
+.flex-container{
+    display: flex;
 }
 .d-flex-center{
     display: flex;
@@ -123,6 +170,18 @@ h3{
     background-color:black;
     color: rgb(218, 212, 212);
     box-shadow: 4px 4px 15px rgb(37, 36, 36);
+}
+button{
+    background-color: rgb(33, 114, 117);
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    margin: 1rem 0;
+    
+}
+.revealUp{
+    opacity: 0;
+    visibility: hidden;
 }
 /*--------Projects--------------*/
 .project-section{
@@ -151,7 +210,7 @@ h3{
     width: 50%;
 }
 .intro p{
-    font-size: 15px;
+    font-size: 1.1rem;
 }
 .intro h1{
     font-size: 23px;
@@ -233,8 +292,6 @@ h3{
     align-items: center;
     display: flex;
     flex-direction: column;
-    
-
 }
 #blog-title{
     font-size: 5rem;
@@ -263,11 +320,15 @@ h3{
     flex-direction: column;
     gap: 2rem;
 }
+#box-articles h3{
+    font-family: serif;
+    margin-bottom: 1rem;
+}
 .article-list-container{
     width: 70%;
     margin: 0px auto;
     padding: 3rem 0;
-    background-color: whitesmoke; 
+    background-color: var(--primary-light-color);
     position: absolute; 
     top: 400px;
   
@@ -282,21 +343,137 @@ h3{
    display: flex;
    gap: 3rem;
 }
-#first-article img{
+.img-container-first{
     width: 50%;
+    overflow: hidden;
 }
-.article-container{
+#first-article img{
+    width: 100%;
+    transition-duration: 2s;
+}
+.article-container-aside{
+    margin: 1rem 0;
+}
+.article-category-container h3{
+    font-size: 1.4rem;
+    color: cadetblue;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.article-container-aside .img-container{
+    height: 9rem;
+    margin: 0.5rem 0;
+}
+.article-container-aside img{
+    height: 100%;
+}
+
+.article-container-w30{
     width: 30%;
+}
+.article-container:hover{
+    opacity: 0.6;
+}
+.article-container h4:hover{
+    color: blue;
 }
 .article-container a{
     text-decoration: none;
     color: black;
 }
+.img-container{
+    width: 100%;
+    overflow: hidden;
+    height: auto;
+}
 .article-container img{
     width: 100%;
+    transition-duration: 2s;
 }
-
-
+.article-container img:hover, .img-container-first img:hover{
+    scale: 1.1;
+}
+/*-----------Article's detail ------------*/
+.article-detail-container{
+    padding-top: 70px;
+}
+.img-detail-container{
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; 
+}
+.card-overlay{
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.title-article-container h1{
+    text-transform: uppercase;
+    font-size: 3rem;
+    width: 70%;
+    font-family: serif;
+}
+.content-article{
+    width: 75%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 0 auto;
+    
+    background-color: var(--primary-light-color);
+    padding: 2rem;
+}
+.article-detail{   
+    width: 65%;
+    font-size: 1.2rem;
+    line-height: 2.4rem;
+    text-align: justify;
+}
+.article-detail a{
+    text-decoration: none;
+    color: rgb(13, 177, 128);
+}
+.comments-container{
+    margin-top:3rem;
+}
+#comment{
+    width: 50%;
+}
+#comment >div{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+#comment label{
+    font-size: 1rem;
+}
+.comment-date{
+    font-weight: 300;
+    font-size: 1rem;
+    font-style: italic;
+}
+.article-category-container, .article-detail{
+padding: 1.7em 0;
+}
+.article-category-container{
+    width: 20%;
+}
+.article-category-container img{
+    width: 100%;
+    gap: 1rem;
+}
+.article-category-container p{
+    font-size: 1rem;
+    line-height: 1;
+}
 @media screen and (max-width:  1400px)
 {	
     .hamburguer{

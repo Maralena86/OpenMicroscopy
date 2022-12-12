@@ -26,6 +26,7 @@ class BlogCrudController extends AbstractCrudController
 
             yield SlugField::new('slug')
                 ->setTargetFieldName('title');
+            yield TextField::new('textInfo');
 
             yield TextEditorField::new('content');
 

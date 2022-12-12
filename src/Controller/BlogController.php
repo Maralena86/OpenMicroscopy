@@ -24,15 +24,17 @@ class BlogController extends AbstractController
     }
 
     #[Route('/blog/article/{slug}', name: 'blog_article_show')]
-    public function showArticle(?Blog $blog): Response
+    public function showArticle(?Blog $blog, BlogRepository $blogRepository): Response
     {
         $comment = new Comment($blog);
         $form = $this->createForm(CommentType::class, $comment);
-
+    
+        
 
         return $this->render('blog/article.html.twig', [
             'blog' => $blog,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'posts' =>$blogRepository->findAll()
         ]);
     }
 

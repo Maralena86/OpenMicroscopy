@@ -12,7 +12,7 @@
         <div class="categories-list">
         {% for category in categories %}
             <a href="{{ path('blog_category_show', {'slug': category.slug }) }}">
-                <li>{{category.name}}</li>
+                <li>{{category.name|capitalize}}</li>
             </a>
        {% endfor %}
         </div>
@@ -23,28 +23,44 @@
         {% if blog == blogs|first %}
         <h2>Last Article</h2>
         <div id="first-article">
-            <img src='uploads/{{blog.image.filename}}'>
-            <div>
-            <h3>{{blog.title}}</h3>
-            {% for category in blog.categories %}
-            <span style="color:{{category.color}}">{{category.name}} </span>
-            {% endfor %}
-            <p>{{blog.content|striptags}}</p>
-            <p>{{blog.createdAt|date()}}</p>
+            <div class="img-container-first">
+                <img src='uploads/{{blog.image.filename}}'>
+            </div>
+            <div class="article-container" >
+                <a href="{{ path('blog_article_show', {'slug': blog.slug }) }}">
+                    <h3>{{blog.title}}</h3>
+                    {% for category in blog.categories %}
+                    <span style="color:{{category.color}}">{{category.name}} </span>
+                    {% endfor %}
+                    {% if blog.textInfo %}
+                    <p>{{ blog.textInfo }}</p>
+                    {% else %}
+                    
+                    <p>{{blog.content|striptags|slice(0, 70, '...')}}</p>
+                    {% endif %}
+                    <p>{{blog.createdAt|date()}}</p>
+                </a>
             </div>
         </div>
         <div class="grid-container">
         {% else %}
         
      
-            <div class='article-container'>
+            <div class='article-container-w30 article-container'>
                 <a href="{{ path('blog_article_show', {'slug': blog.slug }) }}">
-                <img src='uploads/{{blog.image.filename}}'>
+                <div class="img-container">
+                    <img src='uploads/{{blog.image.filename}}'>
+                </div>
                 <h3>{{blog.title}}</h3>
                 {% for category in blog.categories %}
-                <span style="color:{{category.color}}">{{category.name}} </span>
+                <span style="color:{{category.color}}">{{category.name|capitalize}} </span>
             {% endfor %}
-                <p>{{blog.content|striptags}}</p>
+                {% if blog.textInfo %}
+                    <p>{{ blog.textInfo }}</p>
+                    {% else %}
+                    
+                    <p>{{blog.content|striptags|slice(0, 50, '...')}}</p>
+                    {% endif %}
                 <p>{{blog.createdAt|date()}}</p>
                 </a>
             </div>
@@ -53,10 +69,10 @@
   
         </div>
     </div>
-    <div>
-    
-       
-     
+    </div>
+   
     
 </div>
+
+    
 {% endblock %}

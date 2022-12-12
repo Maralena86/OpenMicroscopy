@@ -1,0 +1,10 @@
+<div>
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{absolute_url(path('blog_article_show', {slug:blog.slug}))}}">
+        <i class="fa-brands fa-facebook"></i>
+    </a>
+    <a href="https://twitter.com/intent/tweet?text={{ blog.title|url_encode}}%20{{absolute_url(path('blog_article_show', {slug:blog.slug}))}}%20@RLaboratoryBlog">
+        <i class="fa-brands fa-twitter"></i>
+    </a>
+
+    
+</div>

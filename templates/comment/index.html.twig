@@ -1,8 +1,7 @@
 <div class="comment" id="comment-{{comment.id}}">
     <div>
     <p class="comment-content">{{comment.content}}</p>
-    {{comment.createdAt|date()}}
-    {{comment.user.email}}
-
+    <p class="comment-date">
+    {{comment.createdAt|date()}}</p>
     </div>
 </div>
