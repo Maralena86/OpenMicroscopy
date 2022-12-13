@@ -15,7 +15,7 @@ header{
     height: auto;
     position: fixed;
     background-color: rgb(0, 0, 0);
-    z-index: 1;
+    z-index: 5000;
     box-shadow: 3px 3px 3px black;
     display: flex;
     justify-content: flex-end;
@@ -68,15 +68,15 @@ ul{
     display: none;
     cursor: pointer;
 }
-
+.align-left{
+    text-align: left;
+}
 
 /*--------corps------------*/
 .hero-container{
     background-color: black;
- 
     box-shadow: 4px 4px 15px black;
-    position: relative;
-   
+    position: relative;  
 }
 #color-green{
     color: rgb(98, 195, 139);
@@ -130,11 +130,8 @@ h1, h2{
     font-weight: 200;
     text-align: center;
     text-transform: capitalize;
-
 }
-
 h2{
-
     font-size: 47px;
     margin-bottom: 10px;
 }
@@ -144,7 +141,9 @@ h3{
 }
 img{
     object-fit: cover;
+    max-width: 100%;
 }
+
 /*--------framework--------*/
 .fa-brands{
     color: rgb(12, 12, 117);
@@ -235,11 +234,11 @@ button{
     width: auto;
 }
 /*------------members---------------*/
+.img-member{
+    width: 40%;
+}
 .img-member>img{
-
-    width: 300px;
-    height: 320px;
- 
+    
 }
 .member-container h2{
     font-size: 20px;
@@ -277,8 +276,46 @@ button{
     margin: 0px;
     font-size: 15px;
 }
+/*--------------connexion-------------------*/
+.connexion form{
+    width: 40%;
+    margin: 0 auto;
+}
+.connexion h1{
+    margin: 3rem 0;
+}
+#user{
+    width: 100%;
+}
+input
+{
+    width: 100%;
+    height: 2rem;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid gray;
+    margin-bottom: 1rem;
+}
 
 /*----------blogcontainer--------*/
+#connexion-container a{
+    color: #62938c;
+    text-decoration: none; 
+    transition-duration: 0.4s;  
+}
+#connexion-container a:hover{
+    scale: 1.05;
+    color: rgb(185, 218, 212);
+}
+#connexion-container{
+    display: flex;
+    width: 70%;
+    justify-content: flex-end;
+    gap: 2rem;
+}
+.connexion{
+    padding-top: 90px;
+}
 .blog-container{
     position: relative;
     display: flex;
@@ -303,9 +340,14 @@ button{
 .categories-list a{
     text-decoration: none;
     color: white;
+    
 }
 .categories-list li{
     list-style-type: none;
+    padding-bottom: 0.5rem;
+}
+.categories-list li:hover{
+    scale: 1.2;
 }
 .categories-list{
     display: flex;
@@ -318,11 +360,11 @@ button{
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
 }
 #box-articles h3{
     font-family: serif;
     margin-bottom: 1rem;
+    font-size: 1.6rem;
 }
 .article-list-container{
     width: 70%;
@@ -333,23 +375,34 @@ button{
     top: 400px;
   
 }
+.article-list-container a{
+    color: black;
+}
 .grid-container{
     display: flex; 
-    gap: 1rem; 
-    
+    gap: 2rem; 
+    flex-wrap: wrap;
+    justify-content: center;
 }
 #first-article{
     width: 100%;
    display: flex;
-   gap: 3rem;
+   gap: 1rem;
+   margin-bottom: 2rem;
 }
 .img-container-first{
-    width: 50%;
+    width: 40%;
     overflow: hidden;
+    
 }
 #first-article img{
     width: 100%;
+    height: 100%;
+    object-fit: contain;
     transition-duration: 2s;
+}
+#first-article .article-container{
+    width: 60%;
 }
 .article-container-aside{
     margin: 1rem 0;
@@ -369,7 +422,8 @@ button{
 }
 
 .article-container-w30{
-    width: 30%;
+    width: 20%;
+    margin-bottom: 2.5rem;
 }
 .article-container:hover{
     opacity: 0.6;
@@ -377,9 +431,16 @@ button{
 .article-container h4:hover{
     color: blue;
 }
+#box-articles h2{
+    font-size: 1.3rem;
+    font-weight: 300;
+    text-transform: uppercase;
+}
 .article-container a{
     text-decoration: none;
-    color: black;
+}
+.article-container p{
+    font-size: 1rem;
 }
 .img-container{
     width: 100%;
@@ -393,6 +454,27 @@ button{
 .article-container img:hover, .img-container-first img:hover{
     scale: 1.1;
 }
+/*-------------Category--------------------------*/
+.category-container{
+    padding-top: 70px;
+    min-height: 100vh;
+}
+.category-grid-container{
+    width: 70%;
+    margin: 0 auto;
+}
+.category-title{
+    padding: 3rem 0;
+    color: white;
+}
+.category-container h1{
+
+    font-size: 5rem;
+}
+.category-article{
+    color: white;
+}
+
 /*-----------Article's detail ------------*/
 .article-detail-container{
     padding-top: 70px;
@@ -513,6 +595,7 @@ padding: 1.7em 0;
     }
     .nav-item:hover{
         background-color: rgb(16, 23, 59);
+        
     }
 	.nav-item>a{
 
@@ -521,6 +604,7 @@ padding: 1.7em 0;
 	}
     .nav-link:hover{
         color: rgb(134, 211, 233);
+        border-bottom: none;
     }
     
     .nav-menu.active{

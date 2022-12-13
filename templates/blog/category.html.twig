@@ -1,11 +1,30 @@
 {% extends 'base.html.twig'%}
 {% block title %}{{category.name}}{% endblock %}
 {% block body %}
-<div class="blog-container">
-<h1 >{{category.name}}</h1>
-{% for blog in category.getBlogs %}
-<h2>{{blog.title}}</h2>
-<p>{{blog.content|raw}}</p>
-{% endfor %}
+<div class="category-container " style="background:linear-gradient(45deg, black, {{category.color}}) ">
+        <div class="category-title" >
+        <h1>{{category.name}}'s articles</h1>
+        </div>
+    <div class="category-grid-container">
+    <div class="grid-container">
+    {% for blog in category.getBlogs %}
+            <div class='article-container-w30 article-container'>
+                <a class="category-article" href="{{ path('blog_article_show', {'slug': blog.slug }) }}">
+                <div class="img-container">
+                    <img src='/uploads/{{blog.image.filename}}'>
+                </div>
+                <h3>{{blog.title}}</h3>
+                
+                {% if blog.textInfo %}
+                    <p>{{ blog.textInfo }}</p>
+                    {% else %}
+                    
+                    <p>{{blog.content|striptags|slice(0, 50, '...')}}</p>
+                    {% endif %}
+                <p>{{blog.createdAt|date()}}</p>
+                </a>
+    </div>
+    {% endfor %}
+    </div>
 </div>
 {% endblock %}
