@@ -170,6 +170,9 @@ img{
     color: rgb(218, 212, 212);
     box-shadow: 4px 4px 15px rgb(37, 36, 36);
 }
+.dark-container h1{
+    color: rgb(153, 149, 149);
+}
 button{
     background-color: rgb(33, 114, 117);
     color: white;
@@ -181,6 +184,14 @@ button{
 .revealUp{
     opacity: 0;
     visibility: hidden;
+}
+/*-----Intro--------*/
+
+.r-letter{
+    font-weight: bold;
+}
+.jij{
+    color: blue;
 }
 /*--------Projects--------------*/
 .project-section{
@@ -210,6 +221,7 @@ button{
 }
 .intro p{
     font-size: 1.1rem;
+    margin-bottom: 2rem;
 }
 .intro h1{
     font-size: 23px;
@@ -232,6 +244,20 @@ button{
 .img-height300{
     height: 350px;
     width: auto;
+}
+/*----------database--------------*/
+
+.dbLab{
+    min-height: 100vh;
+    padding-top: 5rem;
+}
+
+#database img{
+    height: 100px;
+    width: fit-content;
+}
+#companies, #gallery{
+    margin-top: 5rem;
 }
 /*------------members---------------*/
 .img-member{
@@ -257,23 +283,54 @@ button{
     gap: 30px;
 }
 /*------------Publications-------------------*/
+.publications-logo{
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    padding: 3rem 0;
+
+}
+.publications-logo img{
+    width: 120px;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.253);
+    transition-duration: 1s;
+    padding: 0.1rem 0.4rem;
+}
+.publications-logo img:hover{
+    opacity: 0.5;
+    cursor: pointer;
+    scale: 1.04;
+}
 .publications h1, .members h1{
     margin: 0;
     padding-top: 20px;
     text-align: center;
     text-transform: uppercase;   
 }
+.publications-container>a{
+    text-decoration: none;
+    color: rgb(132, 139, 138);
+    padding-bottom: 4rem;
+}
+.publications-container>a:hover{
+    opacity: 0.7;
+}
 .publications h2{
     text-transform: capitalize;
     font-size: 20px;
+    color: white;
+   
     text-align: left;
 }
 .publications h3{
     font-size: 18px;
-    margin: 10px 0px;
+    margin-top: 10px;
 }
 .publications p{
-    margin: 0px;
+    margin-bottom: 3rem;
     font-size: 15px;
 }
 /*--------------connexion-------------------*/
