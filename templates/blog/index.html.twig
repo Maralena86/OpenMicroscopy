@@ -8,9 +8,15 @@
     
     <div id="blog-title-container">
         <div id="connexion-container">
+        {% if app.user %}  
+            {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{path('admin')}}">Admin</a>
+            {% endif %}
+            <a href="{{path('app_logout')}}">Log out</a>
+        {% else %}
             <a href="{{path('app_login')}}">Connexion</a>
             <a href="{{path('app_registration')}}">Inscription</a>
-             <a href="{{path('admin')}}">Admin</a>
+        {% endif %}
             
         </div>
         <h1 id="blog-title">Blog</h1>  

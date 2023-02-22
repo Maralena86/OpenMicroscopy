@@ -1,0 +1,89 @@
+
+
+.publications-logo{
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    padding: 3rem 0;
+
+}
+.publications-logo img{
+    width: 120px;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.253);
+    transition-duration: 1s;
+    padding: 0.1rem 0.4rem;
+}
+.publications-logo img:hover{
+    opacity: 0.5;
+    cursor: pointer;
+    scale: 1.04;
+}
+
+.publications-container>a{
+    text-decoration: none;
+    color: rgb(132, 139, 138);
+    padding-bottom: 4rem;
+}
+.publications-container>a:hover{
+    opacity: 0.7;
+}
+.publications h2{
+    text-align: left;
+}
+
+.publications p{
+    margin-bottom: 3rem;
+}
+
+
+.r-letter{
+    font-weight: bold;
+}
+/*----------database---------------*/
+.dbLab{
+    min-height: 70vh;
+    padding-top: 5rem;
+    
+}
+.dbLab h2{
+    text-shadow: 1px 1px 1px rgb(184 155 155);
+    color: #acb0af;
+    font-weight: 200;
+}
+#database img, .img-database{
+    height: 65px;
+    padding: 0.4rem;
+    box-shadow: 3px 5px 17px gray;
+    width: fit-content;
+    background-color: rgba(170, 197, 206, 0.089);
+    transition-duration: 1s;
+    background-color: white;
+    border-radius: 5px;
+
+}
+#database img:hover, .img-database:hover{
+
+    background-color: rgba(108, 182, 224, 0.267);
+    scale: 1.2;
+    
+}
+
+
+h2{
+   margin-bottom: 2rem;
+   text-shadow: 3px 4px 10px rgb(75, 74, 74);
+}
+.logos-db-container{
+    gap: 7rem;
+    padding: 5rem;
+    display: flex;
+    justify-content: space-around;
+}
+.companies-subtitle{
+    font-size: 1rem;
+    color: #487e80;
+    padding-left: 2rem;
+}

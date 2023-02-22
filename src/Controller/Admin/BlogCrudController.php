@@ -11,6 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
+#[IsGranted('ROLE_ADMIN')] 
 class BlogCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string

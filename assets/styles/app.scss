@@ -126,21 +126,20 @@ p{
     text-align: justify;
     line-height: 1.7;
 }
-h1, h2{
+h1{
     font-weight: 200;
     text-align: center;
     text-transform: capitalize;
 }
 h2{
-    font-size: 47px;
-    margin-bottom: 10px;
+    text-align: center;
 }
 h3{
-    font-size: 30px;
+    font-size: 1.5rem;
     font-weight: 300; 
 }
 img{
-    object-fit: cover;
+    object-fit: contain;
     max-width: 100%;
 }
 
@@ -247,18 +246,7 @@ button{
 }
 /*----------database--------------*/
 
-.dbLab{
-    min-height: 100vh;
-    padding-top: 5rem;
-}
 
-#database img{
-    height: 100px;
-    width: fit-content;
-}
-#companies, #gallery{
-    margin-top: 5rem;
-}
 /*------------members---------------*/
 .img-member{
     width: 40%;
